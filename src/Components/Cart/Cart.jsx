@@ -3,7 +3,7 @@ import React from 'react'
 const Cart = () => {
 
   return (
-    <div>
+    <div style={{height:"100vh"}}>
         <h1>Carrito de compras</h1>
     </div>
   )

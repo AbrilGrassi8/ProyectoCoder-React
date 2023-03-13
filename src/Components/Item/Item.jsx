@@ -20,7 +20,7 @@ const Item = ({ element }) => {
 				<Typography variant='body, h5'>US${element.price}</Typography>
 			</CardContent>
 			<CardActions>
-				<Link to={`/itemDetailContainer/${element.id}`}>
+				<Link to={`/item/${element.id}`}>
 					<Button size='small' variant='contained' color='primary'>
 						Ver detalle
 					</Button>

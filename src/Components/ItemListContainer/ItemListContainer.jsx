@@ -4,17 +4,17 @@ import { products } from "../../productsMock";
 import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = () => {
-  const { categoryName } = useParams();
+  const { categoryId } = useParams();
 
   const [items, setItems] = useState([]);
 
   const productosFiltrados = products.filter(
-    (elemento) => elemento.category === categoryName
+    (elemento) => elemento.category === categoryId
   );
 
   useEffect(() => {
     const productList = new Promise((resolve, reject) => {
-      resolve(categoryName ? productosFiltrados : products);
+      resolve(categoryId ? productosFiltrados : products);
     });
 
     productList
@@ -24,7 +24,7 @@ const ItemListContainer = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [categoryName]);
+  }, [categoryId]);
 
   return (
     <div>

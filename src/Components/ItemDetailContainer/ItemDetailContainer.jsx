@@ -5,6 +5,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import Card from 'react-bootstrap/Card';
 import "./itemDetailContainer.css"
 
+
 const ItemDetailContainer = () => {
 	const { id } = useParams();
 
@@ -15,8 +16,8 @@ const ItemDetailContainer = () => {
 	};
 
 	return (
-		<Card className='itemCardDetail' style={{ width: '30rem' }}>
-			<Card.Img variant='top' src={productSelected.img} />
+		<Card className='itemCardDetail' style={{ width: '50rem' }}>
+			<Card.Img  variant='top' style={{height:'40rem', objectFit:"cover"}} src={productSelected.img} />
 			<Card.Body>
 				<Card.Title>{productSelected.name}</Card.Title>
 				<Card.Text> {productSelected.description}</Card.Text>

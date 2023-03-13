@@ -1,11 +1,12 @@
 .card1 {
 	width: 345px;
 	height: 400px;
-	background-color: rgba(12, 42, 83, 0.575) !important;
-	border: 1px solid rgb(180, 180, 180);
+	background-color: rgba(7, 7, 32, 0.904) !important;
+	border: 1px solid rgb(20, 7, 94);
 	border-radius: 10px;
-	box-shadow: 0px 0px 10px rgb(16, 16, 131) !important;
-	font-style: italic;
+	box-shadow: 0px 0px 10px rgb(18, 18, 202) !important;
+	color: rgba(235, 233, 233, 0.952)!important;
+	
 	
 }
 /* 
