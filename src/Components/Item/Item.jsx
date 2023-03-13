@@ -14,14 +14,14 @@ const Item = ({ element }) => {
 			<CardMedia sx={{ height: 210 }} image={element.img} title='green iguana' />
 			<CardContent className='cardContent'>
 				<Typography gutterBottom variant='h5' component='div'>
-					{element.title}
+					<b>{element.title}</b>
 				</Typography>
 				{/* <Typography variant='body2'>{element.description}</Typography> */}
 				<Typography variant='body, h5'>US${element.price}</Typography>
 			</CardContent>
 			<CardActions>
-				<Link to={`/itemDetail/${element.id}`}>
-					<Button className='button' size='small' variant='contained' color='primary'>
+				<Link to={`/itemDetailContainer/${element.id}`}>
+					<Button size='small' variant='contained' color='primary'>
 						Ver detalle
 					</Button>
 				</Link>

@@ -2,7 +2,9 @@ import { BsFillCartCheckFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import './CartWidget.css';
 
-const CartWidget = () => {
+
+
+const CartWidget = ({numero}) => {
 	return (
 		<Link to='/cart'>
 			<div className='container-cart'>

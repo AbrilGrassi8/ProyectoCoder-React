@@ -1,17 +1,15 @@
-
 .card1 {
 	width: 345px;
 	height: 400px;
-	background-color: rgba(172, 69, 1, 0.301)!important;
+	background-color: rgba(12, 42, 83, 0.575) !important;
 	border: 1px solid rgb(180, 180, 180);
-    border-radius: 10px;
-	box-shadow: 0px 0px 10px rgb(16, 16, 131)!important;
-    color: 'white'
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgb(16, 16, 131) !important;
+	font-style: italic;
+	
 }
-
+/* 
 .button {
 	background-color: rgba(104, 9, 9, 0.644) !important;
-	text-decoration: none !important;
-}
-
-
+	
+} */
