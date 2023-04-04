@@ -22,7 +22,7 @@ const pages = [
 	{ id: 2, name: 'Nike', url: '/category/Nike' },
 	{ id: 7, name: 'Jordan', url: '/category/Jordan' },
 ];
-const settings = ['Perfil', 'Cerrar Sesión'];
+// const settings = ['Perfil', 'Cerrar Sesión'];
 export const Navbar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -153,7 +153,7 @@ export const Navbar = () => {
 						))}
 					</Box>
 
-					<Box sx={{ flexGrow: 0 }}>
+					{/* <Box sx={{ flexGrow: 0 }}>
 						<Tooltip title='Click Aquí'>
 							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
 								<Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
@@ -180,7 +180,7 @@ export const Navbar = () => {
 								</MenuItem>
 							))}
 						</Menu>
-					</Box>
+					</Box> */}
 					<div className='cart'>
 						<BsFillCartCheckFill />
 					</div>

@@ -1,30 +1,57 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import { products } from '../../productsMock';
-import ItemCount from '../ItemCount/ItemCount';
-import Card from 'react-bootstrap/Card';
-import "./itemDetailContainer.css"
+// import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from '../../context/CartContext';
+import ItemDetail from "../ItemDetail/ItemDetail";
+import { getDoc, collection, doc } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
+import Swal from "sweetalert2";
+
 
 
 const ItemDetailContainer = () => {
 	const { id } = useParams();
+	const { agregarAlCarrito, getQuantityById } = useContext ( CartContext )
+	const [productSelected, setProductSelected] = useState({});
 
-	const productSelected = products.find((element) => element.id === Number(id));
+	useEffect(() => {
+		const itemCollection = collection(db, "products");
+		const ref = doc(itemCollection, id);
+		getDoc(ref)
+		.then((res) => {
+		  setProductSelected({
+			...res.data(),
+			id: res.id,
+		  });
+		});
+	  }, [id]);
 
-	const onAdd = (cantidad) => {
-		console.log(`se agrego al carrito ${cantidad} productos `);
-	};
+	  const onAdd = (cantidad) => {
+		let producto = {
+		  ...productSelected,
+		  quantity: cantidad,
+		};
+	
+		agregarAlCarrito(producto);
+		Swal.fire({
+		  position: "center",
+		  icon: "success",
+		  title: "Producto agregado exitosamente",
+		  showConfirmButton: false,
+		  timer: 1500,
+		});
+	  };
+	  
+	  let quantity = getQuantityById(Number(id));
 
-	return (
-		<Card className='itemCardDetail' style={{ width: '50rem' }}>
-			<Card.Img  variant='top' style={{height:'40rem', objectFit:"cover"}} src={productSelected.img} />
-			<Card.Body>
-				<Card.Title>{productSelected.name}</Card.Title>
-				<Card.Text> {productSelected.description}</Card.Text>
-				<ItemCount stock={productSelected.stock} onAdd={onAdd} />
-			</Card.Body>
-		</Card>
-	);
+	  return (
+		<ItemDetail
+		  productSelected={productSelected}
+		  onAdd={onAdd}
+		  quantity={quantity}
+		/>
+	  );
+	
 };
 
 export default ItemDetailContainer;
